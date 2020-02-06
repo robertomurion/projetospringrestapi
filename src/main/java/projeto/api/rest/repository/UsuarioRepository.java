@@ -15,4 +15,7 @@ public interface UsuarioRepository extends CrudRepository<Usuario, Long>{
 	@Transactional
 	@Query("update Usuario u set u.login=?2 where u.id = ?1")
 	public void atualizarById(Long id, String login);
+	
+	@Query("select u from Usuario u where u.login = ?1")
+	Usuario findUserByLogin(String login);
 }
